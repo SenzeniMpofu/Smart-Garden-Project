@@ -11,11 +11,17 @@ bus = busio.I2C(board.SCL, board.SDA)
 sensor = seesaw.Seesaw(bus, addr=0x36)
 
 # Connect moisture read to moisture metric
-moisture = prom.Gauge("soil_moisture", "Soil Moisture reading from STEMMA capacative sensor")
+moisture = prom.Gauge(
+    "soil_moisture",
+    "Soil Moisture reading from STEMMA capacative sensor"
+)
 moisture.set_function(sensor.moisture_read)
 
 # Connect temperature read to metric
-temperature = prom.Gauge("temperature", "Ambiant temperature reading from STEMMA capacative sensor")
+temperature = prom.Gauge(
+    "temperature",
+    "Ambiant temperature reading from STEMMA capacative sensor"
+)
 temperature.set_function(sensor.get_temp)
 
 # Start metrics server
