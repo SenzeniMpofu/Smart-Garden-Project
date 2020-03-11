@@ -13,21 +13,21 @@ sensor = bme680.Adafruit_BME680_I2C(bus)
 # Temperature metric
 temperature = prom.Gauge(
     "bme680_temperature",
-    "Temperature sensor of BME680 sensor"
+    "Temperature sensor of BME680 sensor in degress Celsius"
 )
 temperature.set_function(lambda: sensor.temperature)
 
 # Relative humidity metric
 humidity = prom.Gauge(
     "bme680_humidity",
-    "Relative humidity of BME680 sensor"
+    "Relative humidity of BME680 sensor in percent"
 )
 humidity.set_function(lambda: sensor.humidity)
 
 # Atmospheric pressure metric
 pressure = prom.Gauge(
     "bme680_pressure",
-    "Atmospheric pressure of BME680 sensor"
+    "Atmospheric pressure of BME680 sensor in hPa"
 )
 pressure.set_function(lambda: sensor.pressure)
 
