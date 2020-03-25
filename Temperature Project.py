@@ -1,6 +1,5 @@
 import time   
     
-#Figure out whether or not to use the data
 def display_temp():
     thermometer_file = open('/sys/bus/w1/devices/28-01191a3eea60/w1_slave')
     aline = thermometer_file.readlines() 
